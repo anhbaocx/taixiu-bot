@@ -2,8 +2,7 @@ const WebSocket = require("ws");
 const admin = require("firebase-admin");
 
 // IMPORT từ file key Firebase JSON
-const serviceAccount = require("./serviceAccountKey.json");
-
+const serviceAccount = JSON.parse(process.env.GOOGLE_APPLICATION_CREDENTIALS_JSON);
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
   databaseURL: "https://taixiu-official-default-rtdb.firebaseio.com"
